@@ -1,3 +1,60 @@
+<script>
+import Footer from '../components/Footer.vue';
+import sofaSatu from '@/assets/sofa_satu.jpg';
+import sofaDua from '@/assets/sofa_dua.jpg';
+import sofaTiga from '@/assets/sofa_tiga.jpg';
+import sofaEmpat from '@/assets/sofa_empat.jpg';
+import sofaLima from '@/assets/sofa_lima.jpg';
+
+export default {
+  name: 'BestSeller',
+
+  components: {
+    Footer,
+  },
+
+  data() {
+    return {
+      currentIndex: 1,
+      activeIndex: 1,
+      products: [
+        { name: 'Velvet Sofa', image: sofaSatu },
+        { name: 'Und Chair', price: '329', image: sofaDua },
+        { name: 'Tiga Sofa', image: sofaTiga },
+        { name: 'Side Table', image: sofaEmpat },
+        { name: 'Shelf Unit', image: sofaLima }
+      ],
+    };
+  },
+
+  computed: {
+    loopProducts() {
+      return [...this.products, ...this.products];
+    },
+    currentOffset() {
+      return this.currentIndex * 324; // sesuaikan width produk + gap
+    }
+  },
+
+  methods: {
+    next() {
+      this.currentIndex++;
+      if (this.currentIndex >= this.products.length) {
+        this.currentIndex = 0;
+      }
+      this.activeIndex = this.currentIndex;
+    },
+
+    prev() {
+      this.currentIndex--;
+      if (this.currentIndex < 0) {
+        this.currentIndex = this.products.length - 1;
+      }
+      this.activeIndex = this.currentIndex;
+    }
+  },
+};
+</script>
 <template>
   <section class="min-h-screen flex flex-col md:flex-row gap-8 bg-gray-100">
     <div class="flex-1 flex flex-col justify-center gap-6 px-6 py-10 md:px-12 lg:px-16">
@@ -38,7 +95,7 @@
       </div>
     </div>
   </section>
-  <section class="bg-[#2F241F] w-full max-w-[1441px] mx-auto min-h-[486px] px-6 sm:px-12 md:px-20 lg:px-[142px] py-12 md:py-[72px] flex flex-col gap-8 md:gap-[40px]">
+  <section class="bg-[#2F241F] w-full max-w-full md:max-w-[1441px] mx-auto min-h-[486px] px-6 sm:px-12 md:px-20 lg:px-[142px] py-12 md:py-[72px] flex flex-col gap-8 md:gap-[40px]">
     <p class="font-sans text-[#E5F0B6] font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[32px] md:leading-[36px]"> WHY CHOOSE US? </p>
     <h1 class="font-sans font-bold text-[25px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[110%] md:leading-[100%] tracking-[-1%] text-[#E5F0B6]">
       We care about details and the quality<br/>
@@ -152,58 +209,9 @@
       </button>
     </div>
   </section>
-  <Footer />
 
 </template>
 
-<script>
-
-export default {
-  name: 'BestSeller',
-
-  data() {
-    return {
-      currentIndex: 1,
-        activeIndex: 1, 
-      products:[
-        {name:'Velvet Sofa', image:'/src/assets/sofa_satu.jpg'},
-        {name:'Und Chair', price:'329', image:'/src/assets/sofa_dua.jpg'},
-        {name:'Tiga Sofa', image:'/src/assets/sofa_tiga.jpg'},
-        {name:'Side Table', image:'/src/assets/sofa_empat.jpg'},
-        {name:'Shelf Unit', image:'/src/assets/sofa_lima.jpg'}
-      ],
-    }
-  },
-
-  computed: {
-      loopProducts() {
-        return [...this.products, ...this.products];
-      },
-    currentOffset() {
-      return this.currentIndex * 324;
-    }
-  },
-
-  methods: {
-
-    next() {
-      this.currentIndex++;
-      if (this.currentIndex >= this.products.length) {
-        this.currentIndex = 0;
-      }
-      this.activeIndex = this.currentIndex;
-    },
-
-    prev() {
-      this.currentIndex--;
-      if (this.currentIndex < 0) {
-        this.currentIndex = this.products.length - 1;
-      }
-      this.activeIndex = this.currentIndex;
-    }
-  },
-};
-</script>
 
 <style scoped>
 
