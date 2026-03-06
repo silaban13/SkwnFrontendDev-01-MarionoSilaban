@@ -227,7 +227,7 @@ html, body {
 .container{
   max-width:1440px;
   margin:auto;
-  padding:0 80px;
+  padding:0 16px;
   display:flex;
   flex-direction:column;
   gap:48px;
