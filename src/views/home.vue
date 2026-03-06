@@ -214,6 +214,9 @@ export default {
 
 
 <style scoped>
+html, body {
+  overflow-x: hidden;
+}
 
 .best-seller{
   width:100%;
