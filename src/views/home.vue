@@ -267,27 +267,16 @@ html, body {
   position:relative;
 }
 
-.carousel-track{
-  display:flex;
-  gap:24px;
-  transition:transform .45s ease;
-  align-items:center;
+.carousel-track {
+  display: flex;
+  gap: 1rem; /* sm:gap-6 untuk breakpoint */
+  transition: transform 0.45s ease;
+  max-width: 100%;
 }
 
-.product-card{
-  width:300px;
-  height:400px;
-  border-radius:12px;
-  overflow:hidden;
-  flex-shrink:0;
-  position:relative;
-
-  transform:scale(.92);
-  opacity:.7;
-
-  transition:
-    transform .45s ease,
-    opacity .45s ease;
+.product-card {
+  flex-shrink: 0;
+  min-width: 0;
 }
 
 .product-card img{
