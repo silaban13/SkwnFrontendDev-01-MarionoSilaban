@@ -171,19 +171,24 @@ export default {
         </div>
         <button class="font-sans font-semibold text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl bg-[#D4CA8A] text-[#2C2218] hover:bg-[#e5dc9c] transition"> SEE MORE </button>
       </div>
-      <div class="carousel-wrapper overflow-x-auto scrollbar-hide">
-        <div class="carousel-track flex gap-4 sm:gap-6" :style="{ transform: `translateX(-${currentOffset}px)` }">
-          <div v-for="(product, index) in loopProducts" :key="index" class="product-card relative flex-shrink-0 w-44 sm:w-52 md:w-60 lg:w-72 xl:w-80 h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] xl:h-[440px] rounded-xl" :class="{ active: index === currentIndex }">
-            <img :src="product.image" :alt="product.name" class="w-full h-full object-cover rounded-xl"/>
-            <div v-if="product.price" class="absolute left-2 sm:left-4 bottom-14 sm:bottom-20 px-2 sm:px-4 py-1 rounded-xl bg-white/50 text-black text-xs sm:text-sm font-medium">
-              ${{ product.price }}
-            </div>
-            <h3 class="absolute left-2 sm:left-4 bottom-4 sm:bottom-8 text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold">
-              {{ product.name }}
-            </h3>
-          </div>
-        </div>
+
+      <div class="carousel-wrapper overflow-hidden relative">
+  <div class="carousel-track flex gap-4 sm:gap-6 transition-transform duration-500"
+       :style="{ transform: `translateX(-${currentOffset}px)` }">
+    <div v-for="(product, index) in loopProducts" :key="index"
+         class="product-card relative flex-shrink-0 w-[80vw] sm:w-52 md:w-60 lg:w-72 xl:w-80 h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] xl:h-[440px] rounded-xl"
+         :class="{ active: index === currentIndex }">
+      <img :src="product.image" :alt="product.name" class="w-full h-full object-cover rounded-xl"/>
+      <div v-if="product.price" class="absolute left-2 sm:left-4 bottom-14 sm:bottom-20 px-2 sm:px-4 py-1 rounded-xl bg-white/50 text-black text-xs sm:text-sm font-medium">
+        ${{ product.price }}
       </div>
+      <h3 class="absolute left-2 sm:left-4 bottom-4 sm:bottom-8 text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold">
+        {{ product.name }}
+      </h3>
+    </div>
+  </div>
+</div>
+
       <div class="nav-buttons flex justify-center mt-4 sm:mt-6 gap-2 sm:gap-4">
         <button class="nav-btn px-3 sm:px-4 py-2 sm:py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition" @click="prev" :disabled="currentIndex === 0">
           &lt;
