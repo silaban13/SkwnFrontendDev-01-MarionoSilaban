@@ -1,14 +1,14 @@
 <script>
-import Footer from '../components/Footer.vue';
-import sofaSatu from '@/assets/sofa_satu.jpg';
-import sofaDua from '@/assets/sofa_dua.jpg';
-import sofaTiga from '@/assets/sofa_tiga.jpg';
-import sofaEmpat from '@/assets/sofa_empat.jpg';
-import sofaLima from '@/assets/sofa_lima.jpg';
+
+  import Footer from '../components/Footer.vue';
+  import sofaSatu from '@/assets/sofa_satu.jpg';
+  import sofaDua from '@/assets/sofa_dua.jpg';
+  import sofaTiga from '@/assets/sofa_tiga.jpg';
+  import sofaEmpat from '@/assets/sofa_empat.jpg';
+  import sofaLima from '@/assets/sofa_lima.jpg';
 
 export default {
   name: 'BestSeller',
-
   components: {
     Footer,
   },
@@ -32,7 +32,7 @@ export default {
       return [...this.products, ...this.products];
     },
     currentOffset() {
-      return this.currentIndex * 324; // sesuaikan width produk + gap
+      return this.currentIndex * 324; 
     }
   },
 
@@ -55,25 +55,23 @@ export default {
   },
 };
 </script>
+
 <template>
   <section class="min-h-screen flex flex-col md:flex-row gap-8 bg-gray-100">
     <div class="flex-1 flex flex-col justify-center gap-6 px-6 py-10 md:px-12 lg:px-16">
-      <h1 class="font-inter font-extrabold text-[40px] sm:text-[50px] md:text-[60px] lg:text-[65px] leading-[110%] md:leading-[100%] tracking-[-1%] text-gray-800">
-        The kind of 
-        <br>
-        <span class="text-[#c9a84c]">furniture</span> you have 
-        <br>
-        been looking for
+      <h1 data-aos="fade-up" data-aos-delay="100" class="font-inter text-center lg:text-left font-extrabold text-[30px] leading-[110%] tracking-[-1%] text-gray-800 sm:text-[50px] md:text-[60px] lg:text-[65px] md:leading-[100%] ">
+        The kind of <br class="hidden sm:block"> <span class="text-[#c9a84c]">furniture</span>
+        you have <br class="hidden sm:block">been <br class="block lg:hidden"> looking for
       </h1>
-      <div class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 items-center md:items-start">
-        <button class="font-sans flex items-center justify-center gap-4 w-full max-w-[344px] h-[60px] md:h-[70px] px-6 md:px-[36px] bg-[#E5F0B6]/30 border border-[#c9a84c]/40 text-gray-700 text-[18px] md:text-[20px] font-medium rounded-[12px] transition-colors hover:bg-[#E5F0B6]/50">
+      <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 items-center md:items-start">
+        <button  data-aos="fade-up" data-aos-delay="400" class="font-sans flex items-center justify-center gap-4 w-full max-w-[250px] lg:max-w-[300px] h-[60px] md:h-[70px] px-4 md:px-[36px] bg-[#E5F0B6]/30 border border-[#c9a84c]/40 text-gray-700 text-[16px] md:text-[20px] font-medium rounded-[12px] transition-colors hover:bg-[#E5F0B6]/50">
           <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <circle cx="11" cy="11" r="8"/>
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/>
           </svg>
           SEARCH CATALOG
         </button>
-        <button class="font-sans flex items-center justify-center gap-4 w-full max-w-[344px] h-[60px] md:h-[70px] px-6 md:px-[36px] bg-white border border-gray-300 text-gray-700 text-[18px] md:text-[20px] font-medium rounded-[12px] hover:bg-gray-50 transition-colors">
+        <button data-aos="fade-up" data-aos-delay="500" class="font-sans flex items-center justify-center gap-4 w-full max-w-[250px] lg:max-w-[300px] h-[60px] md:h-[70px] px-4 md:px-[36px] bg-white border border-gray-300 text-gray-700 text-[16px] md:text-[20px] font-medium rounded-[12px] hover:bg-gray-50 transition-colors">
           <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="10"/>
             <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>
@@ -82,7 +80,7 @@ export default {
         </button>
       </div>
     </div>
-    <div class="relative flex-1 w-full max-w-[500px] h-[400px] sm:h-[500px] md:h-[700px]">
+    <div class="relative flex-1 w-full md:max-w-none lg:max-w-[500px] sm:h-[500px] md:h-[700px]">
       <img src="/src/assets/sova.svg" alt="Posht Sofa" class="w-full h-full object-cover" />
       <p class="text-sm font-medium text-white absolute top-0 left-0 md:hidden px-3 py-5"> HIGHLIGHTED PRODUCT </p>
       <div class="absolute left-6 md:left-10 bottom-[100px] md:bottom-[110px] flex flex-col gap-3">
@@ -95,12 +93,15 @@ export default {
       </div>
     </div>
   </section>
+
   <section class="bg-[#2F241F] w-full max-w-full md:max-w-[1441px] mx-auto min-h-[486px] px-6 sm:px-12 md:px-20 lg:px-[142px] py-12 md:py-[72px] flex flex-col gap-8 md:gap-[40px]">
-    <p class="font-sans text-[#E5F0B6] font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[32px] md:leading-[36px]"> WHY CHOOSE US? </p>
+    <p class="text-center lg:text-left font-sans text-[#E5F0B6] font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[32px] md:leading-[36px]"> WHY CHOOSE US? </p>
+
     <h1 class="font-sans font-bold text-[25px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[110%] md:leading-[100%] tracking-[-1%] text-[#E5F0B6]">
       We care about details and the quality<br/>
       of our products
     </h1>
+
     <div class="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-16 mt-4 w-full max-w-[1157px]">
       <div class="flex items-center gap-4 flex-1">
         <div class="w-10 h-10 bg-[#E5F0B680] rounded flex items-center justify-center shrink-0">
@@ -125,6 +126,8 @@ export default {
       </div>
     </div>
   </section>
+
+
   <section class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 lg:gap-[200px] px-6 py-10 flex-wrap text-center max-w-7xl mx-auto">
     <div class="flex flex-col items-center mb-6 md:mb-0">
       <h1 class="font-sans font-bold text-5xl md:text-7xl lg:text-[96px] leading-[100%] tracking-[-0.05em] text-gray-800">25+</h1>
@@ -217,7 +220,6 @@ export default {
 
 </template>
 
-
 <style scoped>
 html, body {
   overflow-x: hidden;
@@ -269,7 +271,7 @@ html, body {
 
 .carousel-track {
   display: flex;
-  gap: 1rem; /* sm:gap-6 untuk breakpoint */
+  gap: 1rem;
   transition: transform 0.45s ease;
   max-width: 100%;
 }

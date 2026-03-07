@@ -10,7 +10,6 @@ const app = createApp(App)
 app.use(router)
 app.mount('#app')
 
-// Init AOS setelah mount
 AOS.init({
   duration: 800,
   easing: 'ease-out',
