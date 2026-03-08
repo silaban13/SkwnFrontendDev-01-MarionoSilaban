@@ -3,11 +3,11 @@
   const isOpen = ref(false);
 </script>
 <template>
-  <nav class="bg-white border border-gray-200 shadow-sm px-6 py-6 items-center justify-between"> 
-    <div class="max-w-screen-xl mx-auto flex items-center justify-between">
-      <div class="flex-shrink-0">
+  <nav class="bg-white border border-gray-200 shadow-sm px-4 md:px-6 py-6">
+    <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between">
+      <router-link to="/" class="flex-shrink-0 lg:ml-6">
         <img src="/src/assets/logo.svg" class="w-36 sm:w-48 md:w-40 lg:w-[100px] h-auto" alt="Logo" />
-      </div>
+      </router-link>
       <ul class="hidden md:flex items-center gap-8 flex-nowrap min-w-0">
         <li class="group">
           <router-link to="/" class="text-gray-800 font-semibold relative inline-block ...">
@@ -37,18 +37,16 @@
           </router-link>
         </li>
       </ul>
-      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+      <div class="hidden md:flex items-center gap-3 flex-shrink-0 lg:mr-6">
         <button class="bg-[#E5F0B6] text-gray-800 px-4 py-2 rounded hover:bg-green-200">Sign Up</button>
         <button class="bg-gray-800 text-white p-2 rounded flex items-center justify-center">
           <img src="/src/assets/parcel.png" alt="" class="w-5 h-5 filter invert brightness-90" />
         </button>
       </div>
-      <button @click="isOpen = !isOpen" class="md:hidden flex items-center gap-2">
-        <div class="flex flex-col gap-1.5">
-          <span class="block w-3 h-0.5 bg-black"></span>
-          <span class="block w-6 h-0.5 bg-black"></span>
-          <span class="block w-3 h-0.5 bg-black"></span>
-        </div>
+      <button @click="isOpen = !isOpen" class="md:hidden flex items-center gap-2 relative w-6 h-6">
+        <span class="absolute block h-0.5 w-4 bg-black transition-all duration-300" :class="isOpen ? 'rotate-45 top-3' : 'top-1'"></span>
+        <span class="absolute block h-0.5 w-6 bg-black transition-all duration-300" :class="isOpen ? 'opacity-0' : 'top-3'"></span>
+        <span class="absolute block h-0.5 w-4 bg-black transition-all duration-300" :class="isOpen ? '-rotate-45 top-3' : 'top-5'" ></span>
       </button>
     </div>
   </nav>

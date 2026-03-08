@@ -11,6 +11,10 @@ import Footer from './components/Footer.vue';
 
 
 <style scoped>
+html, body {
+  overflow-x: hidden;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

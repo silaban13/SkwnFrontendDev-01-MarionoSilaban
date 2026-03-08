@@ -1,5 +1,4 @@
 <script>
-
   import Footer from '../components/Footer.vue';
   import sofaSatu from '@/assets/sofa_satu.jpg';
   import sofaDua from '@/assets/sofa_dua.jpg';
@@ -96,12 +95,13 @@ export default {
 
   <section class="bg-[#2F241F] w-full max-w-full md:max-w-[1441px] mx-auto min-h-[486px] px-6 sm:px-12 md:px-20 lg:px-[142px] py-12 md:py-[72px] flex flex-col gap-8 md:gap-[40px]">
     <p class="text-center lg:text-left font-sans text-[#E5F0B6] font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[32px] md:leading-[36px]"> WHY CHOOSE US? </p>
-
-    <h1 class="font-sans font-bold text-[25px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[110%] md:leading-[100%] tracking-[-1%] text-[#E5F0B6]">
-      We care about details and the quality<br/>
+    <h1 class="text-center lg:text-left font-sans font-bold text-[25px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[110%] md:leading-[100%] tracking-[-1%] text-[#E5F0B6]">
+      We care about details and
+      <br class="block sm:hidden">
+      the quality
+      <br class="hidden sm:block">
       of our products
     </h1>
-
     <div class="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-16 mt-4 w-full max-w-[1157px]">
       <div class="flex items-center gap-4 flex-1">
         <div class="w-10 h-10 bg-[#E5F0B680] rounded flex items-center justify-center shrink-0">
@@ -110,13 +110,25 @@ export default {
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/>
           </svg>
         </div>
-        <p class="font-sans font-semibold text-[14px] sm:text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] uppercase text-[#E5F0B6]"> Manufactured with <br>quality materials </p>
+        <p class="font-sans font-semibold text-[14px] sm:text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] uppercase text-[#E5F0B6]">
+          Manufactured with
+          <br class="hidden sm:block">
+          quality
+          <br class="block sm:hidden">
+           materials
+        </p>
       </div>
       <div class="flex items-center gap-4 flex-1">
         <div class="w-10 h-10 bg-[#E5F0B680] rounded flex items-center justify-center shrink-0">
           <span class="font-sans font-bold text-[16px] text-[#F4F4F4]">5</span>
         </div>
-        <p class="font-sans font-semibold text-[14px] sm:text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] uppercase text-[#E5F0B6]"> 5 years of warranty <br>for each product</p>
+        <p class="font-sans font-semibold text-[14px] sm:text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] uppercase text-[#E5F0B6]">
+          5 years of warranty
+          <br class="hidden sm:block">
+          for each
+          <br class="block sm:hidden">
+          profuct
+        </p>
       </div>
       <div class="flex items-center gap-4 flex-1">
         <div class="w-10 h-10 bg-[#E5F0B680] rounded flex items-center justify-center shrink-0">
@@ -126,12 +138,10 @@ export default {
       </div>
     </div>
   </section>
-
-
   <section class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 lg:gap-[200px] px-6 py-10 flex-wrap text-center max-w-7xl mx-auto">
     <div class="flex flex-col items-center mb-6 md:mb-0">
       <h1 class="font-sans font-bold text-5xl md:text-7xl lg:text-[96px] leading-[100%] tracking-[-0.05em] text-gray-800">25+</h1>
-      <p class="font-sans font-normal text-sm md:text-lg lg:text-[24px] leading-[100%] text-gray-500 mt-1">Partnered Brands</p>
+      <p class="font-sans font-normal text-sm md:text-lg lg:text-[24px] lg:ml-[70px] leading-[100%] text-gray-500 mt-1">PARTNERED BRANDS</p>
     </div>
     <div class="flex items-center justify-center gap-6 md:gap-8 flex-wrap">
       <img src="/src/assets/Company logo.svg" alt="Brand 1" class="w-[60px] md:w-[105px] h-auto object-contain">
@@ -141,23 +151,30 @@ export default {
     </div>
   </section>
   <section class="w-full py-[80px] flex flex-col lg:flex-row items-start gap-[48px]">
-    <div class=" flex-row flex  order-2 gap-6 w-full max-w-[620px] h-[200px] sm:h-[380px] lg:h-[523px]">
-      <img src="/src/assets/Rectangle 6794.png" class="w-[110px] sm:w-[110px] lg:w-[120px] h-full object-cover rounded-xl mx-auto" alt="">
-      <img src="/src/assets/Rectangle 6793.png" class="w-[110px] sm:w-[130px] lg:w-[140px] h-full object-cover rounded-xl mx-auto" alt="">
-      <img src="/src/assets/Rectangle 6792.png" class="w-[110px] sm:w-[320px] lg:w-[330px] h-full object-cover rounded-3xl mx-auto" alt="">
+    <div class="flex flex-row gap-2 w-full max-w-[620px] h-[200px] sm:h-[380px] lg:h-[523px] order-2 lg:order-1">
+      <img src="/src/assets/Rectangle 6794.png" class=" w-[110px] sm:w-[110px] lg:w-[120px] lg:h-full h-[140px] object-cover rounded-xl mx-auto" alt="">
+      <img src="/src/assets/Rectangle 6793.png" class="w-[110px] sm:w-[130px] lg:w-[140px] lg:h-full h-[140px] object-cover rounded-xl mx-auto" alt="">
+      <img src="/src/assets/Rectangle 6792.png" class="w-[110px] sm:w-[320px] lg:w-[370px] lg:h-full h-[140px] object-cover rounded-xl mx-auto" alt="">
     </div>
-    <div class="flex  relative order-1  flex-col gap-8 w-full lg:flex-1 ml-8">
-      <p class="text-sm text-center text-gray-500 tracking-wide"> Categories </p>
-      <h1 class="text-center font-extrabold text-2xl md:text-4xl lg:text-5xl text-gray-800 leading-tight"> Furniture Sets <br> Recommendations </h1>
-      <div class=" max-w-[300px] rounded-xl space-y-4">
+    <div class="flex relative flex-col gap-8 w-full lg:flex-1 lg:ml-[70px] order-1 lg:order-2">
+      <p class="text-center lg:text-left text-sm text-gray-500 tracking-wide"> Categories </p>
+      <h1 class="text-center lg:text-left font-extrabold text-2xl md:text-4xl lg:text-5xl text-gray-800 leading-tight"> Furniture Sets <br> Recommendations </h1>
+      <div class="bg-sky-50 max-w-[390px] space-y-2 mx-auto lg:mx-0">
         <div class="py-3"><h3 class="text-base font-bold text-gray-700 cursor-pointer"> Bedroom</h3></div>
-        <div class="bg-[#E5F0B6] rounded-xl p-5 space-y-3">
+        <div class="bg-[#E5F0B6] p-5 space-y-3">
           <h3 class="text-base font-bold text-gray-800"> Living Room </h3>
-          <p class=" text-sm text-gray-800"> Enjoy a great living room aesthetics with your family </p>
-          <p class="text-sm text-gray-800"> Designs created for increased comfortability</p>
+          <p class="text-sm text-gray-800">
+            Enjoy a great living room aesthetics with
+            <br class="block sm:hidden">
+            your family
+            <br class="hidden sm:block">
+            Designs created for
+            <br class="block sm:hidden">
+            increased comfortability
+          </p>
         </div>
         <div class="py-3">
-          <h3 class="text-base font-bold text-gray-700 cursor-pointer"> Home Office </h3>
+          <h3 class="text-base font-bold text-gray-700 cursr-pointer"> Home Office </h3>
         </div>
         <div class="py-3">
           <h3 class="text-base font-bold text-gray-700 cursor-pointer"> Gaming Room </h3>
