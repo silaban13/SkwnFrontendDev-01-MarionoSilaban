@@ -4,6 +4,7 @@ import './style.css'
 import router from "./router/router.js"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import 'flowbite'
 
 const app = createApp(App)
 

@@ -1,60 +1,49 @@
-<script>
-  import Footer from '../components/Footer.vue';
-  import sofaSatu from '@/assets/sofa_satu.jpg';
-  import sofaDua from '@/assets/sofa_dua.jpg';
-  import sofaTiga from '@/assets/sofa_tiga.jpg';
-  import sofaEmpat from '@/assets/sofa_empat.jpg';
-  import sofaLima from '@/assets/sofa_lima.jpg';
+<script setup>
+  import { ref, computed } from "vue"
+  import sofaSatu from "@/assets/sofa_satu.jpg"
+  import sofaDua from "@/assets/sofa_dua.jpg"
+  import sofaTiga from "@/assets/sofa_tiga.jpg"
+  import sofaEmpat from "@/assets/sofa_empat.jpg"
+  import sofaLima from "@/assets/sofa_lima.jpg"
 
-export default {
-  name: 'BestSeller',
-  components: {
-    Footer,
-  },
+  const products = [
+    { id: 1, name: "Velvet Sofa", price: 199, image: sofaSatu },
+    { id: 2, name: "Sofa Und", price: 329, image: sofaDua },
+    { id: 3, name: "Side Table", price: 149, image: sofaTiga },
+    { id: 4, name: "Wall Shelf", price: 89, image: sofaEmpat },
+    { id: 5, name: "Lounge Chair", price: 259, image: sofaLima }
+  ]
 
-  data() {
-    return {
-      currentIndex: 1,
-      activeIndex: 1,
-      products: [
-        { name: 'Velvet Sofa', image: sofaSatu },
-        { name: 'Und Chair', price: '329', image: sofaDua },
-        { name: 'Tiga Sofa', image: sofaTiga },
-        { name: 'Side Table', image: sofaEmpat },
-        { name: 'Shelf Unit', image: sofaLima }
-      ],
-    };
-  },
+  const items = computed(() => [
+    ...products,
+    ...products,
+    ...products
+  ])
 
-  computed: {
-    loopProducts() {
-      return [...this.products, ...this.products];
-    },
-    currentOffset() {
-      return this.currentIndex * 324; 
+  const currentIndex = ref(products.length)
+  const cardWidth = 210
+  const gap = 25
+
+  const trackOffset = computed(() => {
+    return -(currentIndex.value * (cardWidth + gap))
+  })
+
+  function next() {
+    currentIndex.value++
+
+    if (currentIndex.value >= products.length * 2) {
+      currentIndex.value = products.length
     }
-  },
+  }
 
-  methods: {
-    next() {
-      this.currentIndex++;
-      if (this.currentIndex >= this.products.length) {
-        this.currentIndex = 0;
-      }
-      this.activeIndex = this.currentIndex;
-    },
+  function prev() {
+    currentIndex.value--
 
-    prev() {
-      this.currentIndex--;
-      if (this.currentIndex < 0) {
-        this.currentIndex = this.products.length - 1;
-      }
-      this.activeIndex = this.currentIndex;
+    if (currentIndex.value <= 0) {
+      currentIndex.value = products.length
     }
-  },
-};
+  }
 </script>
-
 <template>
   <section class="min-h-screen flex flex-col md:flex-row gap-8 bg-gray-100">
     <div class="flex-1 flex flex-col justify-center gap-6 px-6 py-10 md:px-12 lg:px-16">
@@ -92,7 +81,6 @@ export default {
       </div>
     </div>
   </section>
-
   <section class="bg-[#2F241F] w-full max-w-full md:max-w-[1441px] mx-auto min-h-[486px] px-6 sm:px-12 md:px-20 lg:px-[142px] py-12 md:py-[72px] flex flex-col gap-8 md:gap-[40px]">
     <p class="text-center lg:text-left font-sans text-[#E5F0B6] font-normal text-[16px] sm:text-[18px] md:text-[20px] leading-[32px] md:leading-[36px]"> WHY CHOOSE US? </p>
     <h1 class="text-center lg:text-left font-sans font-bold text-[25px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[110%] md:leading-[100%] tracking-[-1%] text-[#E5F0B6]">
@@ -182,40 +170,33 @@ export default {
       </div>
     </div>
   </section>
-  <section class="best-seller py-12">
+  <section class="bg-[#2F241F] best-seller py-12">
     <div class="container mx-auto px-4">
-      <div class="header flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-        <div class="header-text text-center md:text-left">
-          <p class="font-sans font-normal text-xs sm:text-sm md:text-base leading-4 sm:leading-5 md:leading-6 tracking-wide uppercase text-[#B8C47A]"> OUR PRODUCTS </p>
-          <h2 class="text-[#D4CA8A] font-inter font-bold text-sm sm:text-xl md:text-2xl lg:text-4xl xl:text-[48px] leading-tight tracking-tight"> This month's best seller </h2>
+      <div class="header flex items-end justify-between md:items-center gap-4 mb-6">
+        <div class="header-text">
+          <p class="lg:ml-6 font-sans font-normal text-xs sm:text-sm md:text-base tracking-wide uppercase text-[#B8C47A] mb-2"> OUR PRODUCTS </p>
+          <h2 class="lg:ml-6 text-[#D4CA8A] font-inter font-bold text-sm sm:text-xl md:text-2xl lg:text-4xl xl:text-[48px] leading-tight tracking-tight"> This month's best seller</h2>
         </div>
-        <button class="font-sans font-semibold text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl bg-[#D4CA8A] text-[#2C2218] hover:bg-[#e5dc9c] transition"> SEE MORE </button>
-      </div>
-
-      <div class="carousel-wrapper overflow-hidden relative">
-  <div class="carousel-track flex gap-4 sm:gap-6 transition-transform duration-500"
-       :style="{ transform: `translateX(-${currentOffset}px)` }">
-    <div v-for="(product, index) in loopProducts" :key="index"
-         class="product-card relative flex-shrink-0 w-[80vw] sm:w-52 md:w-60 lg:w-72 xl:w-80 h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] xl:h-[440px] rounded-xl"
-         :class="{ active: index === currentIndex }">
-      <img :src="product.image" :alt="product.name" class="w-full h-full object-cover rounded-xl"/>
-      <div v-if="product.price" class="absolute left-2 sm:left-4 bottom-14 sm:bottom-20 px-2 sm:px-4 py-1 rounded-xl bg-white/50 text-black text-xs sm:text-sm font-medium">
-        ${{ product.price }}
-      </div>
-      <h3 class="absolute left-2 sm:left-4 bottom-4 sm:bottom-8 text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold">
-        {{ product.name }}
-      </h3>
-    </div>
-  </div>
-</div>
-
-      <div class="nav-buttons flex justify-center mt-4 sm:mt-6 gap-2 sm:gap-4">
-        <button class="nav-btn px-3 sm:px-4 py-2 sm:py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition" @click="prev" :disabled="currentIndex === 0">
-          &lt;
-        </button>
-        <button class="nav-btn px-3 sm:px-4 py-2 sm:py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition" @click="next">
-          &gt;
-        </button>
+        <button class="lg:mr-6 font-sans font-semibold text-[10px] sm:text-sm md:text-base px-3 sm:px-6 md:px-8 py-1.5 sm:py-3 rounded-xl bg-[#D4CA8A] text-[#2C2218] hover:bg-[#e5dc9c] transition "> SEE MORE </button>
+      </div> 
+      <div class="relative overflow-hidden w-full ">
+        <div class="flex gap-6 transition-transform duration-500" :style="{ transform: `translateX(${trackOffset}px)` }">
+          <div v-for="(item,index) in items" :key="item.id" class="flex-shrink-0 rounded-2xl overflow-hidden relative cursor-pointer h-10 sm:w-48 md:w-52 lg:w-60  transition-all duration-500"   :class="[ index === currentIndex + 1 ? 'w-3/4 h-[250px] sm:h-64 lg:h-96 scale-105 lg:scale-110 z-10' : 'w-1/2 h-52 sm:h-56 lg:h-80 opacity-70']"  >
+            <img :src="item.image" class="w-full h-full object-cover" alt=""/>
+            <div v-if="index === currentIndex + 1" class="absolute bottom-4 left-4 text-white">
+              <span class="bg-white/70 text-black px-2 py-1 rounded text-sm"> ${{ item.price }} </span>
+              <p class="text-xl font-bold"> {{ item.name }} </p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:hidden">
+          <button @click="prev" class="absolute left-2 top-1/2 top-[55%] -translate-y-1/2 w-10 h-10 rounded-full bg-[#d8d7a0] flex items-center justify-center"> ‹ </button>
+          <button @click="next" class="absolute right-2 top-1/2 top-[55%] -translate-y-1/2 w-10 h-10 rounded-full bg-[#d8d7a0] flex items-center justify-center" > › </button> 
+        </div>
+        <div class="hidden lg:flex gap-3 mt-6 justify-end">
+          <button @click="prev" class="w-10 h-10 rounded-full bg-[#d8d7a0] flex items-center justify-center"> ‹ </button>
+          <button @click="next" class="w-10 h-10 rounded-full bg-[#d8d7a0] flex items-center justify-center"> › </button>
+        </div>
       </div>
     </div>
   </section>
@@ -234,127 +215,12 @@ export default {
       </button>
     </div>
   </section>
-
 </template>
 
 <style scoped>
-html, body {
-  overflow-x: hidden;
-}
-
-.best-seller{
-  width:100%;
-  padding:80px 0;
-  background:#3a2a1f;
-}
-
-.container{
-  max-width:1440px;
-  margin:auto;
-  padding:0 16px;
-  display:flex;
-  flex-direction:column;
-  gap:48px;
-}
-
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.label{
-  font-size:12px;
-  letter-spacing:0.12em;
-  color:#cbd59a;
-  margin-bottom:8px;
-}
-
-.see-more-btn{
-  background:#d7e2a4;
-  color:#2c2218;
-  border:none;
-  padding:12px 26px;
-  border-radius:10px;
-  font-weight:600;
-  cursor:pointer;
-}
-
-.carousel-wrapper{
-  width:100%;
-  overflow:hidden;
-  position:relative;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1rem;
-  transition: transform 0.45s ease;
-  max-width: 100%;
-}
-
-.product-card {
-  flex-shrink: 0;
-  min-width: 0;
-}
-
-.product-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.product-card.active{
-  transform:scale(1.05);
-  opacity:1;
-}
-
-.product-info{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:18px;
-
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,.65),
-    rgba(0,0,0,0)
-  );
-}
-
-.price{
-  display:inline-block;
-  background:white;
-  padding:4px 10px;
-  border-radius:6px;
-  font-size:50px;
-  margin-bottom:6px;
-}
-
-.product-name{
-  color:white;
-  font-size:20px;
-  font-weight:600;
-}
-
-.nav-buttons{
-  display:flex;
-  justify-content:flex-end;
-  gap:12px;
-}
-
-.nav-btn{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:1px solid #d7e2a4;
-  background: #E5F0B6;
-  font-size:18px;
-  cursor:pointer;
-  transition:.25s;
-}
+  html, body {
+    overflow-x: hidden;
+  }
 </style>
 
 
