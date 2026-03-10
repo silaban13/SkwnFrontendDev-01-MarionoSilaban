@@ -1,9 +1,33 @@
 <script setup>
-  import { ref } from 'vue';
+  import { ref, onMounted, onUnmounted } from 'vue';
   const isOpen = ref(false);
+
+  const showNavbar = ref(true)
+  let lastScroll = 0
+
+  const handleScroll = () => {
+    const currentScroll = window.scrollY
+
+    if (currentScroll > lastScroll && currentScroll > 80) {
+      showNavbar.value = false 
+    } else {
+      showNavbar.value = true 
+    }
+
+    lastScroll = currentScroll
+  }
+
+  onMounted(() => {
+    window.addEventListener("scroll", handleScroll)
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll)
+  })
+
 </script>
 <template>
-  <nav class="bg-white border border-gray-200 shadow-sm px-4 md:px-6 py-6">
+  <nav class="bg-white border border-gray-200 shadow-sm px-4 md:px-6 py-6 fixed top-0 left-0 w-full z-50 transition-transform duration-300" :class="showNavbar ? 'translate-y-0' : '-translate-y-full'">
     <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between">
       <router-link to="/" class="flex-shrink-0 lg:ml-6">
         <img src="/src/assets/logo.svg" class="w-36 sm:w-48 md:w-40 lg:w-[100px] h-auto" alt="Logo" />
@@ -67,7 +91,9 @@
       </div>
     </div>
   </transition>
+  <div class="pt-24">
   <RouterView/>
+</div>
 </template>
 <style>
   .slide-enter-active, .slide-leave-active {

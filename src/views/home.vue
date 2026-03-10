@@ -147,7 +147,7 @@
     <div class="flex relative flex-col gap-8 w-full lg:flex-1 lg:ml-[70px] order-1 lg:order-2">
       <p class="text-center lg:text-left text-sm text-gray-500 tracking-wide"> Categories </p>
       <h1 class="text-center lg:text-left font-extrabold text-2xl md:text-4xl lg:text-5xl text-gray-800 leading-tight"> Furniture Sets <br> Recommendations </h1>
-      <div class="bg-sky-50 max-w-[390px] space-y-2 mx-auto lg:mx-0">
+      <div class="max-w-[390px] space-y-2 mx-auto lg:mx-0">
         <div class="py-3"><h3 class="text-base font-bold text-gray-700 cursor-pointer"> Bedroom</h3></div>
         <div class="bg-[#E5F0B6] p-5 space-y-3">
           <h3 class="text-base font-bold text-gray-800"> Living Room </h3>
@@ -201,14 +201,11 @@
     </div>
   </section>
   <section class="bg-[#f5f5f0] w-full max-w-[1440px] mx-auto py-20 px-6 md:px-20 lg:px-[142px] rounded-2xl flex flex-col gap-10">
-    <p class="font-inter font-normal text-sm sm:text-base md:text-lg leading-5 sm:leading-6 md:leading-7 tracking-wide text-gray-500 uppercase"> LIMITED DEALS </p>
-    <h1 class="font-inter font-bold text-[clamp(1.5rem,5vw,3rem)] md:text-[clamp(2rem,4vw,4rem)] lg:text-[50px] leading-tight tracking-tight transition-all duration-300 text-[#1a1a1a] max-w-full">
-      Become a member and get 10% off <br>
-      of your first purchase
-    </h1>
-    <div class="flex flex-col sm:flex-row items-center w-full max-w-xl border border-gray-300 rounded-lg bg-white overflow-hidden">
-      <input v-model="email" type="email" placeholder="Enter your email here" class="flex-1 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-600 placeholder-gray-400 outline-none" />
-      <button @click="subscribe" class="w-full sm:w-auto mt-2 sm:mt-0 bg-[#d4e07a] hover:bg-[#c5d166] transition rounded-md p-3 sm:p-4 flex items-center justify-center">
+    <p class="text-center lg:text-left lg:font-inter font-normal text-sm sm:text-base md:text-lg leading-5 sm:leading-6 md:leading-7 tracking-wide text-[#1a1a1a] uppercase"> LIMITED DEALS </p>
+    <h1 class="text-center lg:text-left font-inter font-bold text-[clamp(1.2rem,4vw,2rem)]  md:text-[clamp(2rem,4vw,4rem)]  lg:text-[50px] leading-tight tracking-tight transition-all duration-300 text-[#1a1a1a] max-w-full"> Become a member and get 10% off <br> of your first purchase </h1>
+    <div class="flex items-center w-full max-w-xl lg:max-w-lg border border-gray-300 rounded-lg bg-white overflow-hidden">
+      <input v-model="email" type="email" placeholder="Enter your email here" class="flex-1 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-600 placeholder-gray-400 outline-none"/>
+      <button @click="subscribe" class="bg-[#d4e07a] hover:bg-[#c5d166] transition p-3 sm:p-4 flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#1a1a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
         </svg>
@@ -216,7 +213,6 @@
     </div>
   </section>
 </template>
-
 <style scoped>
   html, body {
     overflow-x: hidden;

@@ -20,3 +20,9 @@ Fitur utama:
 ### 1. Clone repository
 ```bash
 git clone https://github.com/silaban13/SkwnFrontendDev-01-MarionoSilaban.git
+
+```
+
+## Animasi
+
+- auto-hide navbar
